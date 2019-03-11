@@ -1,4 +1,4 @@
-const { mongoose } = require('./db/mongoose.js');
+const { mongoose } = require('../db/mongoose.js');
 
 const classe = mongoose.model('Class', {
     className: {

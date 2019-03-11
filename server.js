@@ -4,28 +4,21 @@ const express = require('express');
 const {argv} = require('yargs');
 const bodyParser = require('body-parser');
 
-const { Character } = require('./models/user.js');
-const { Classe } = require('./models/todo.js');
+const { character } = require('./models/character.js');
+const { Classe } = require('./models/classe.js');
 
 const app = express();
 
 app.use(bodyParser.json());
 
 app.post('/character', (req, res) => {
-    let newCharacter = new Character( {
+    let newCharacter = new character( {
         name: req.body.name,
-        classe: req.body.classe
+        classe: req.body.classe,
+        level: req.body.level
     });
     newCharacter.save().then( character => {
         res.send(character);
-    }).catch((err) => {
-        res.status(500).send(err);
-    });
-});
-
-app.get('/character', (req,res) => {
-    Todo.find().then(characters => {
-        res.json(characters)
     }).catch((err) => {
         res.status(500).send(err);
     });
@@ -36,11 +29,11 @@ app.delete('/character/:id', (req,res) => {
     if (!ObjectID.isValid(id)) {
         res.status(404).send()
     }
-    Todo.findByIdAndDelete(id).then((character) => {
+    character.findByIdAndDelete(id).then((character) => {
         if (!character) {
             res.status(404).send()
         }
-        res.send(character, "deleted");
+        res.send("deleted");
     }).catch((err) => {
         res.status(500).send()
     })
@@ -64,6 +57,25 @@ app.delete('/character/:id', (req,res) => {
 //         res.status(500).send(err)
 //     })
 // });
+app.put('/character/:id', (req, res) => {         
+    const { id } = req.params;         
+    const newName = req.body.name;
+    const newClasse = req.body.classe;
+    console.log(text);         
+    if (!ObjectID.isValid(id)) {             
+        res.status(404).send();         
+    } else {            
+        Todo.findByIdAndUpdate(id, { $set: { name: newName, classe: NewClasse } }).then(todo => {                
+            if (!todo) {                     
+                res.status(404).send();                 
+            } else {                     
+                res.json(todo).send();                
+            }             
+        }).catch(err => {                 
+            res.status(500).send(err);             
+        });         
+    }     
+});
 
 
 

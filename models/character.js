@@ -1,5 +1,4 @@
-const { mongoose } = require('./db/mongoose.js');
-const { className } = require('./classe')
+const { mongoose } = require('../db/mongoose.js');
 
 const character = mongoose.model('Character', {
     name: {
@@ -7,11 +6,11 @@ const character = mongoose.model('Character', {
         required: true
     },
     classe: {
-        type: className,
+        type: String,
         required: true
     },
     level: {
-        type: number,
+        type: Number,
         default: 1
     },
 })

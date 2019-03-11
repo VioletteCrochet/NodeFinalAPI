@@ -27,7 +27,7 @@ app.post('/character', (req, res) => {
 app.delete('/character/:id', (req,res) => { 
     const {id} = req.params;
     if (!ObjectID.isValid(id)) {
-        res.status(404).send()
+        res.status(400).send()
     }
     character.findByIdAndDelete(id).then((character) => {
         if (!character) {
@@ -39,40 +39,21 @@ app.delete('/character/:id', (req,res) => {
     })
 });
 
-// app.put('/character/:id', (req,res) => { 
-//     let newCharacter = new Character({
-//         text: req.body.text
-//     });
-//     const {id} = req.params;
-//     if (!ObjectID.isValid(id)) {
-//         res.status(403).send()
-//     }
-//     Todo.findOneAndUpdate(id, newTodo).then((character) => {
-//         if (!character) {
-//             res.status(404).send()
-//         }
-//         console.log(text)
-//         res.send(character);
-//     }).catch((err) => {
-//         res.status(500).send(err)
-//     })
-// });
 app.put('/character/:id', (req, res) => {         
-    const { id } = req.params;         
-    const newName = req.body.name;
-    const newClasse = req.body.classe;
-    console.log(text);         
+    const { id } = req.params;       
     if (!ObjectID.isValid(id)) {             
-        res.status(404).send();         
+        res.status(400).send('invalid ID');         
     } else {            
-        Todo.findByIdAndUpdate(id, { $set: { name: newName, classe: NewClasse } }).then(todo => {                
-            if (!todo) {                     
+        character.findByIdAndUpdate(id, { $set: req.body }).then(oldCharacter => {                
+            if (!oldCharacter) {                     
                 res.status(404).send();                 
-            } else {                     
-                res.json(todo).send();                
+            } else { 
+                character.findById(id).then(newCharacter => {           
+                    res.json(newCharacter).send();
+                })                
             }             
         }).catch(err => {                 
-            res.status(500).send(err);             
+            res.status(500).send();             
         });         
     }     
 });

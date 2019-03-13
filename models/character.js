@@ -13,6 +13,10 @@ const character = mongoose.model('Character', {
         type: Number,
         default: 1
     },
+    alignement: {
+        type: String,
+        default: "neutre"
+    }
 })
 
 module.exports = {

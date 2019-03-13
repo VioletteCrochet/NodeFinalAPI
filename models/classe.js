@@ -9,6 +9,10 @@ const classe = mongoose.model('Class', {
         type: String,
         required: true
     },
+    role: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = {

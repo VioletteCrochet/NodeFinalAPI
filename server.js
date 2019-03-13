@@ -12,6 +12,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
+// POST METHOD CHARACTER
 app.post('/character', (req, res) => {
     let newCharacter = new character( {
         name: req.body.name,
@@ -25,6 +26,35 @@ app.post('/character', (req, res) => {
     });
 });
 
+// POST METHOD ALIGNEMENT
+app.post('/alignement', (req, res) => {
+    let newAlignement = new alignement( {
+        name: req.body.name,
+        cite: req.body.cite,
+        level: req.body.level
+    });
+    newAlignement.save().then( alignement => {
+        res.send(alignement);
+    }).catch((err) => {
+        res.status(500).send(err);
+    });
+});
+
+// POST METHOD CLASSE
+app.post('/classe', (req, res) => {
+    let newClasse = new classe( {
+        className: req.body.className,
+        spells: req.body.spells,
+        role: req.body.role
+    });
+    newClasse.save().then( classe => {
+        res.send(classe);
+    }).catch((err) => {
+        res.status(500).send(err);
+    });
+});
+
+// DELETE METHOD CHARACTER
 app.delete('/character/:id', (req,res) => {
     const {id} = req.params;
     if (!ObjectID.isValid(id)) {
@@ -40,6 +70,39 @@ app.delete('/character/:id', (req,res) => {
     })
 });
 
+// DELETE METHOD ALIGNEMENT
+app.delete('/alignement/:id', (req,res) => {
+    const {id} = req.params;
+    if (!ObjectID.isValid(id)) {
+        res.status(400).send()
+    }
+    alignement.findByIdAndDelete(id).then((alignement) => {
+        if (!alignement) {
+            res.status(404).send()
+        }
+        res.send("deleted");
+    }).catch((err) => {
+        res.status(500).send()
+    })
+});
+
+// DELETE METHOD CLASSE
+app.delete('/classe/:id', (req,res) => {
+    const {id} = req.params;
+    if (!ObjectID.isValid(id)) {
+        res.status(400).send()
+    }
+    classe.findByIdAndDelete(id).then((classe) => {
+        if (!classe) {
+            res.status(404).send()
+        }
+        res.send("deleted");
+    }).catch((err) => {
+        res.status(500).send()
+    })
+});
+
+// PUT METHOD CHARACTER
 app.put('/character/:id', (req, res) => {
     const { id } = req.params;
     if (!ObjectID.isValid(id)) {
@@ -59,6 +122,47 @@ app.put('/character/:id', (req, res) => {
     }
 });
 
+// PUT METHOD ALIGNEMENT
+app.put('/alignement/:id', (req, res) => {
+    const { id } = req.params;
+    if (!ObjectID.isValid(id)) {
+        res.status(400).send('invalid ID');
+    } else {
+        alignement.findByIdAndUpdate(id, { $set: req.body }).then(oldAlignement => {
+            if (!oldAlignement) {
+                res.status(404).send();
+            } else {
+                alignement.findById(id).then(newAlignement => {
+                    res.json(newAlignement).send();
+                })
+            }
+        }).catch(err => {
+            res.status(500).send();
+        });
+    }
+});
+
+// PUT METHOD CLASSE
+app.put('/classe/:id', (req, res) => {
+    const { id } = req.params;
+    if (!ObjectID.isValid(id)) {
+        res.status(400).send('invalid ID');
+    } else {
+        classe.findByIdAndUpdate(id, { $set: req.body }).then(oldClasse => {
+            if (!oldClasse) {
+                res.status(404).send();
+            } else {
+                classe.findById(id).then(newClasse => {
+                    res.json(newClasse).send();
+                })
+            }
+        }).catch(err => {
+            res.status(500).send();
+        });
+    }
+});
+
+// GET METHOD CHARACTER
 app.get('/character', (req, res) => {
     character.find().then(listOfCharacter => {
         res.json(listOfCharacter)
@@ -66,6 +170,26 @@ app.get('/character', (req, res) => {
         res.status(500).send()
     });
 });
+
+// GET METHOD ALIGNEMENT
+app.get('/alignement', (req, res) => {
+    alignement.find().then(listOfAlignement => {
+        res.json(listOfAlignement)
+    }).catch(err => {
+        res.status(500).send()
+    });
+});
+
+// GET METHOD CLASSE
+app.get('/classe', (req, res) => {
+    classe.find().then(listOfClasse => {
+        res.json(listOfClasse)
+    }).catch(err => {
+        res.status(500).send()
+    });
+});
+
+// LISTEN
 
 app.listen(3000, () => {
     console.log('Started on port 3000')

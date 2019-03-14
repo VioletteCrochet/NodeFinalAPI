@@ -4,6 +4,9 @@ const express = require('express');
 const {argv} = require('yargs');
 const bodyParser = require('body-parser');
 
+const inputPort = argv._[0]
+const port = (inputPort && !isNaN(inputPort) && (inputPort > 0 && inputPort % 1 === 0)) ? inputPort : 3000;
+
 const { character } = require('./models/character.js');
 const { alignement } = require('./models/alignement.js');
 const { classe } = require('./models/classe.js')
@@ -165,6 +168,6 @@ app.get('/classe', (req, res) => {
 
 // LISTEN
 
-app.listen(3000, () => {
-    console.log('Started on port 3000')
+app.listen(port, () => {
+    console.log('Started on port: ' + port )
 })

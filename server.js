@@ -93,6 +93,13 @@ app.delete('/:route/:id', (req,res) => {
 //         res.status(500).send()
 //     })
 // });
+app.get('/character',  (req, res) => {
+    character.find().then(character => {
+        res.send(character)
+    }).catch(err => {                 
+        res.status(500).send();             
+    })
+})
 
 app.put('/character/:id', (req, res) => {         
     const { id } = req.params;       

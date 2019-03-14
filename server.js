@@ -11,6 +11,7 @@ const { character } = require('./models/character.js');
 const { alignement } = require('./models/alignement.js');
 const { classe } = require('./models/classe.js')
 const  { getCharacter, postCharacter, deleteCharacter, putCharacter } = require('./controller/characterController.js');
+const  { getAlignement, postAlignement, deleteAlignement, putAlignement } = require('./controller/alignementController.js');
 
 
 
@@ -36,16 +37,7 @@ app.put('/character/:id', (req, res) => {
 
 // POST METHOD ALIGNEMENT
 app.post('/alignement', (req, res) => {
-    let newAlignement = new alignement( {
-        name: req.body.name,
-        cite: req.body.cite,
-        level: req.body.level
-    });
-    newAlignement.save().then( alignement => {
-        res.send(alignement);
-    }).catch((err) => {
-        res.status(500).send(err);
-    });
+    postAlignement( req,res)
 });
 
 // POST METHOD CLASSE
@@ -66,18 +58,8 @@ app.post('/classe', (req, res) => {
 
 // DELETE METHOD ALIGNEMENT
 app.delete('/alignement/:id', (req,res) => {
-    const {id} = req.params;
-    if (!ObjectID.isValid(id)) {
-        res.status(400).send()
-    }
-    alignement.findByIdAndDelete(id).then((alignement) => {
-        if (!alignement) {
-            res.status(404).send()
-        }
-        res.send("deleted");
-    }).catch((err) => {
-        res.status(500).send()
-    })
+    deleteAlignement (req,res)
+    
 });
 
 // DELETE METHOD CLASSE
@@ -101,22 +83,7 @@ app.delete('/classe/:id', (req,res) => {
 
 // PUT METHOD ALIGNEMENT
 app.put('/alignement/:id', (req, res) => {
-    const { id } = req.params;
-    if (!ObjectID.isValid(id)) {
-        res.status(400).send('invalid ID');
-    } else {
-        alignement.findByIdAndUpdate(id, { $set: req.body }).then(oldAlignement => {
-            if (!oldAlignement) {
-                res.status(404).send();
-            } else {
-                alignement.findById(id).then(newAlignement => {
-                    res.json(newAlignement).send();
-                })
-            }
-        }).catch(err => {
-            res.status(500).send();
-        });
-    }
+    putAlignement(req,res)
 });
 
 // PUT METHOD CLASSE
@@ -150,11 +117,7 @@ app.get('/character', (req, res) => {
 
 // GET METHOD ALIGNEMENT
 app.get('/alignement', (req, res) => {
-    alignement.find().then(listOfAlignement => {
-        res.json(listOfAlignement)
-    }).catch(err => {
-        res.status(500).send()
-    });
+    getAlignement(req,res)
 });
 
 // GET METHOD CLASSE

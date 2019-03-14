@@ -12,7 +12,7 @@ const { alignement } = require('./models/alignement.js');
 const { classe } = require('./models/classe.js')
 const  { getCharacter, postCharacter, deleteCharacter, putCharacter } = require('./controller/characterController.js');
 const  { getAlignement, postAlignement, deleteAlignement, putAlignement } = require('./controller/alignementController.js');
-
+const  { getClasse, postClasse, deleteClasse, putClasse } = require('./controller/classeController.js');
 
 
 const app = express();

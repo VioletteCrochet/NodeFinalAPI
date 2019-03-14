@@ -4,13 +4,17 @@ const express = require('express');
 const {argv} = require('yargs');
 const bodyParser = require('body-parser');
 
-const { character } = require('./models/character.js');
-const { Classe } = require('./models/classe.js');
+const { classe } = require('./models/classe.js')
+const  { getCharacter, postCharacter, deleteCharacter, putCharacter } = require('./controller/characterController.js');
+
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 
+app.get('/character', (req,res) =>{
+    getCharacter(req,res)
+});
 // app.post('/character', (req, res) => {
 //     let newCharacter = new character( {
 //         name: req.body.name,
@@ -23,44 +27,54 @@ app.use(bodyParser.json());
 //         res.status(500).send(err);
 //     });
 // });
-
-app.post('/:route', (req, res) => {
-    const {route} = req.params;
-    if (route === 'character') {
-    let newCharacter = new character( {
-        name: req.body.name,
-        classe: req.body.classe,
-        level: req.body.level
+app.post('/classe', (req, res) => {
+    let newClasse = new classe( {
+        className: req.body.className,
+        spells: req.body.spells
     });
-    newCharacter.save().then( character => {
-        res.send(character);
+    newClasse.save().then( classe => {
+        res.send(classe)
     }).catch((err) => {
-        res.status(500).send(err);
-    });
-    } else if (route === 'classe') {
-        let newClasse = new classe( {
-            name: req.body.name,
-            spells: req.body.classe,
-            level: req.body.level
-        });
-        newClasse.save().then( classe => {
-            res.send(classe);
-        }).catch((err) => {
-            res.status(500).send(err);
-        });
-    } else if (route === 'alignement') {
-        let newAlignement = new alignement( {
-            name: req.body.name,
-            cite: req.body.cite,
-            level: req.body.level
-        });
-        newAlignement.save().then( alignement => {
-            res.send(alignement);
-        }).catch((err) => {
-            res.status(500).send(err);
-        });
-    }
+        res.status(500).send(err)
+    })
 });
+
+// app.post('/:route', (req, res) => {
+//     const {route} = req.params;
+//     if (route === 'character') {
+//     let newCharacter = new character( {
+//         name: req.body.name,
+//         classe: req.body.classe,
+//         level: req.body.level
+//     });
+//     newCharacter.save().then( character => {
+//         res.send(character);
+//     }).catch((err) => {
+//         res.status(500).send(err);
+//     });
+//     } else if (route === 'classe') {
+//         let newClasse = new classe( {
+//             name: req.body.name,
+//             spells: req.body.spells,
+//         });
+//         newClasse.save().then( classe => {
+//             res.send(classe);
+//         }).catch((err) => {
+//             res.status(500).send(err);
+//         });
+//     } else if (route === 'alignement') {
+//         let newAlignement = new alignement( {
+//             name: req.body.name,
+//             cite: req.body.cite,
+//             level: req.body.level
+//         });
+//         newAlignement.save().then( alignement => {
+//             res.send(alignement);
+//         }).catch((err) => {
+//             res.status(500).send(err);
+//         });
+//     }
+// });
 
 app.delete('/:route/:id', (req,res) => { 
     const {id} = req.params;
@@ -93,13 +107,7 @@ app.delete('/:route/:id', (req,res) => {
 //         res.status(500).send()
 //     })
 // });
-app.get('/character',  (req, res) => {
-    character.find().then(character => {
-        res.send(character)
-    }).catch(err => {                 
-        res.status(500).send();             
-    })
-})
+
 
 app.put('/character/:id', (req, res) => {         
     const { id } = req.params;       
@@ -127,5 +135,4 @@ app.put('/character/:id', (req, res) => {
 
 app.listen(3000, () => {
     console.log('Started on port 3000')
-})
-
+});

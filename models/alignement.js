@@ -1,11 +1,11 @@
 const { mongoose } = require('../db/mongoose.js');
 
-const character = mongoose.model('Character', {
+const alignement = mongoose.model('Alignement', {
     name: {
         type: String,
         required: true
     },
-    classe: {
+    cite: {
         type: String,
         required: true
     },
@@ -13,12 +13,8 @@ const character = mongoose.model('Character', {
         type: Number,
         default: 1
     },
-    alignement: {
-        type: String,
-        default: "neutre"
-    }
 })
 
 module.exports = {
-    character
+    alignement
 }

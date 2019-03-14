@@ -20,16 +20,15 @@ app.get('/character', (req,res) =>{
 });
 
 app.post('/character', (req, res) => {
-    const newCharacter = new character( {
-        name: req.body.name,
-        classe: req.body.classe,
-        level: req.body.level
-    });
-    newCharacter.save().then( character => {
-        res.send(character);
-    }).catch((err) => {
-        res.status(500).send(err);
-    });
+    postCharacter(req,res)
+});
+
+app.delete('/character/:id', (req,res) => {
+    deleteCharacter(req, res)
+});
+
+app.put('/character/:id', (req, res) => {
+    putCharacter(req, res)
 });
 
 // POST METHOD ALIGNEMENT
@@ -61,20 +60,6 @@ app.post('/classe', (req, res) => {
 });
 
 // DELETE METHOD CHARACTER
-app.delete('/character/:id', (req,res) => {
-    const {id} = req.params;
-    if (!ObjectID.isValid(id)) {
-        res.status(400).send()
-    }
-    character.findByIdAndDelete(id).then((character) => {
-        if (!character) {
-            res.status(404).send()
-        }
-        res.send("deleted");
-    }).catch((err) => {
-        res.status(500).send()
-    })
-});
 
 // DELETE METHOD ALIGNEMENT
 app.delete('/alignement/:id', (req,res) => {
@@ -109,24 +94,7 @@ app.delete('/classe/:id', (req,res) => {
 });
 
 // PUT METHOD CHARACTER
-app.put('/character/:id', (req, res) => {
-    const { id } = req.params;
-    if (!ObjectID.isValid(id)) {
-        res.status(400).send('invalid ID');
-    } else {
-        character.findByIdAndUpdate(id, { $set: req.body }).then(oldCharacter => {
-            if (!oldCharacter) {
-                res.status(404).send();
-            } else {
-                character.findById(id).then(newCharacter => {
-                    res.json(newCharacter).send();
-                })
-            }
-        }).catch(err => {
-            res.status(500).send();
-        });
-    }
-});
+
 
 // PUT METHOD ALIGNEMENT
 app.put('/alignement/:id', (req, res) => {

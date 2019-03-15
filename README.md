@@ -44,25 +44,27 @@ To act on Classe:
 *This request is used to show the elements of Database about the collection that you want.*
 
 Put in the URL location:
-`localhost:*port*/*nameofcollection*`
+`localhost:*port*/*collectionName*/*[optional]documentId*`
+
+
 
 ## DELETE
 *This request is used to delete a character in the Database.*
 
 Put in the URL location:
-`localhost:*port*/*nameofcollection*/*idofcharacter*`
+`localhost:*ort*/*collectionName*/*characterId*`
 
 ## PUT
 *This request is used to change an element of a collection.*
 
 Put in the URL location:
-`localhost:*port*/*nameofcollection*/*idofcharacter*`
+`localhost:*port*/*collectionName*/*characterId*`
 
-To act on Character:  
+To update a Character:  
 `{ "name" : "", "classe" : "", "level" : , "alignement", }`  
-To act on Alignement:  
+To update an Alignement:  
 `{ "name" : "", "cite" : "", "level" }`  
-To act on Classe:  
+To update a Classe:  
 `{ "classeName" : "", "spells" : "", "role" : "" }`
 
 There you have all the details and tips to nicely use the API.

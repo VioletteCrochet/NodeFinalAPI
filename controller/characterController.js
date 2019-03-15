@@ -9,9 +9,9 @@ function getCharacter(req, res) {
             res.send(character)
         }).catch((err) => {
             res.status(500).send(err)
-        })
+        });
     }else {
-        character.findBy(id).then((character) => {
+        character.findById(id).then((character) => {
             if (!character) {
                 res.status(404).send()
             }
@@ -21,6 +21,26 @@ function getCharacter(req, res) {
         })
     }
 };
+// code à reproduire pour classe et alignement
+// function getCharacter(req, res) {
+//     const {id} = req.params;
+//     if (!ObjectID.isValid(id)) {
+//         character.find().then(character => {
+//             res.send(character)
+//         }).catch((err) => {
+//             res.status(500).send(err)
+//         });
+//     }else {
+//         character.findById(id).then((character) => {
+//             if (!character) {
+//                 res.status(404).send()
+//             }
+//             res.send(character);
+//         }).catch((err) => {
+//             res.status(500).send(err)
+//         })
+//     }
+// };
 function postCharacter(req,res) {
     const newCharacter = new character( {
         name: req.body.name,
@@ -66,7 +86,7 @@ function putCharacter(req, res) {
         });
     }
 }
-module.exports ={
+module.exports = {
     getCharacter,
     postCharacter,
     deleteCharacter,

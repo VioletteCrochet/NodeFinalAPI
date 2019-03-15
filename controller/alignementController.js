@@ -1,6 +1,7 @@
 const { alignement } = require('../models/alignement.js')
 const mongoose = require('mongoose');
 const ObjectID = mongoose.Types.ObjectId;
+
 function postAlignement (req,res){ 
     let newAlignement = new alignement( {
         name: req.body.name,
@@ -13,6 +14,7 @@ function postAlignement (req,res){
         res.status(500).send(err);
     });
 }
+
 function deleteAlignement (req,res){
     const {id} = req.params;
     if (!ObjectID.isValid(id)) {
@@ -27,6 +29,7 @@ function deleteAlignement (req,res){
         res.status(500).send()
     })
 }
+
 function putAlignement (req,res){
     const { id } = req.params;
     if (!ObjectID.isValid(id)) {
@@ -46,7 +49,6 @@ function putAlignement (req,res){
     }
     
 }
-    
 
 function getAlignement (req,res){
     alignement.find().then(listOfAlignement => {
@@ -56,29 +58,6 @@ function getAlignement (req,res){
     });
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = {  

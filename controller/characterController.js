@@ -38,7 +38,14 @@ function deleteCharacter(req, res) {
     if (!ObjectID.isValid(id)) {
         res.status(400).send()
     }
-    
+    character.findByIdAndDelete(id).then((character) => {
+        if (!character) {
+            res.status(404).send()
+        }
+        res.send('deleted');
+    }).catch((err) => {
+        res.status(500).send(err)
+    })
 };
 
 function putCharacter(req, res) {

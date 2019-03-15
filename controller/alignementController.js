@@ -1,7 +1,10 @@
+//import alignement model and mongoose
 const { alignement } = require('../models/alignement.js')
 const mongoose = require('mongoose');
+//define access to mongoose.Types.objectId and its methods
 const ObjectID = mongoose.Types.ObjectId;
 
+//POST METHOD
 function postAlignement (req,res){ 
     let newAlignement = new alignement( {
         name: req.body.name,
@@ -15,6 +18,7 @@ function postAlignement (req,res){
     });
 }
 
+//DELETE METHOD
 function deleteAlignement (req,res){
     const {id} = req.params;
     if (!ObjectID.isValid(id)) {
@@ -30,6 +34,7 @@ function deleteAlignement (req,res){
     })
 }
 
+//PUT METHOD
 function putAlignement (req,res){
     const { id } = req.params;
     if (!ObjectID.isValid(id)) {
@@ -50,6 +55,7 @@ function putAlignement (req,res){
     
 }
 
+//GET METHOD
 function getAlignement (req,res){
     alignement.find().then(listOfAlignement => {
         res.json(listOfAlignement)
@@ -59,7 +65,7 @@ function getAlignement (req,res){
 
 }
 
-
+//EXPOSE METHODS
 module.exports = {  
     getAlignement,
     putAlignement,

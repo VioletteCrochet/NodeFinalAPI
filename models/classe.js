@@ -1,5 +1,7 @@
+//import mongoose from mongoose.js
 const { mongoose } = require('../db/mongoose.js');
 
+//define Classe Model
 const classe = mongoose.model('Class', {
     className: {
         type: String,
@@ -15,6 +17,7 @@ const classe = mongoose.model('Class', {
     }
 });
 
+//expose Model
 module.exports = {
     classe
 }

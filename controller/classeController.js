@@ -1,7 +1,10 @@
+//import classe model and mongoose
 const { classe } = require('../models/classe.js')
 const mongoose = require('mongoose');
+//define acces to mongoose.Types.ObjectId and its methods 
 const ObjectID = mongoose.Types.ObjectId;
 
+//GET METHOD
 function getClasse(req, res) {
     classe.find().then(classe => {
         res.send(classe)
@@ -10,6 +13,7 @@ function getClasse(req, res) {
     })
 };
 
+//POST METHOD
 function postClasse(req,res) {
     let newClasse = new classe( {
         className: req.body.className,
@@ -23,6 +27,7 @@ function postClasse(req,res) {
     });
 };
 
+//DELETE METHOD
 function deleteClasse(req, res) {
     const {id} = req.params;
     if (!ObjectID.isValid(id)) {
@@ -38,6 +43,7 @@ function deleteClasse(req, res) {
     })
 };
 
+//PUT METHOD
 function putClasse(req, res) {
     const { id } = req.params;
     if (!ObjectID.isValid(id)) {
@@ -57,6 +63,7 @@ function putClasse(req, res) {
     }
 }
 
+//EXPOSE METHODS
 module.exports ={
     getClasse,
     postClasse,

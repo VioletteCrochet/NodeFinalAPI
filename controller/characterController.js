@@ -1,7 +1,10 @@
+//import  character model and mongoose
 const { character } = require('../models/character.js')
 const mongoose = require('mongoose');
+//define access to mongoose.Types.ObjectId and its methods
 const ObjectID = mongoose.Types.ObjectId;
 
+//GET METHOD
 function getCharacter(req, res) {
     const {id} = req.params;
     if (!ObjectID.isValid(id)) {
@@ -41,6 +44,8 @@ function getCharacter(req, res) {
 //         })
 //     }
 // };
+
+//POST METHOD
 function postCharacter(req,res) {
     const newCharacter = new character( {
         name: req.body.name,
@@ -53,6 +58,8 @@ function postCharacter(req,res) {
         res.status(500).send(err);
     })
 };
+
+//DELETE METHOD
 function deleteCharacter(req, res) {
     const {id} = req.params;
     if (!ObjectID.isValid(id)) {
@@ -68,6 +75,7 @@ function deleteCharacter(req, res) {
     })
 };
 
+//PUT METHOD
 function putCharacter(req, res) {
     const { id } = req.params;
     if (!ObjectID.isValid(id)) {
@@ -86,6 +94,8 @@ function putCharacter(req, res) {
         });
     }
 }
+
+//EXPOSE METHODS
 module.exports = {
     getCharacter,
     postCharacter,

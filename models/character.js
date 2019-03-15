@@ -1,5 +1,7 @@
+//import mongoose from mongoose.js
 const { mongoose } = require('../db/mongoose.js');
 
+//define Character Model
 const character = mongoose.model('Character', {
     name: {
         type: String,
@@ -19,6 +21,7 @@ const character = mongoose.model('Character', {
     }
 })
 
+//expose Model
 module.exports = {
     character
 }

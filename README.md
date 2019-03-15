@@ -1,4 +1,4 @@
-# Welcome to Our Dofus API 
+# Welcome to the Dofus API 
 
 ## How to use DofusAPI
  

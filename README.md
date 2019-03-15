@@ -19,7 +19,7 @@ To execute methods you need to download Insomnia: `https://insomnia.rest/downloa
 Three collections exist: "Character", "Alignement", "Classe".
 Four different requests exist: "POST", "GET", "PUT" and "DELETE".
 
-## POST:
+## POST
 *This request is used to submit a collection to the Database.*
 
 Put in the URL location:
@@ -39,19 +39,19 @@ To act on Classe:
 "spells" : "",
 "role" : "" }`
 
-## GET:
+## GET
 *This request is used to show the elements of Database about the collection that you want.*
 
 Put in the URL location:
 `localhost:*port*/*nameofcollection*`
 
-## DELETE:
+## DELETE
 *This request is used to delete a character in the Database.*
 
 Put in the URL location:
 `localhost:*port*/*nameofcollection*/*idofcharacter*`
 
-## PUT:
+## PUT
 *This request is used to change an element of a collection.*
 
 Put in the URL location:

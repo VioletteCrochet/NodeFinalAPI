@@ -3,11 +3,23 @@ const mongoose = require('mongoose');
 const ObjectID = mongoose.Types.ObjectId;
 
 function getCharacter(req, res) {
-    character.find().then(character => {
-        res.send(character)
-    }).catch((err) => {
-        res.status(500).send(err)
-    })
+    const {id} = req.params;
+    if (!ObjectID.isValid(id)) {
+        character.find().then(character => {
+            res.send(character)
+        }).catch((err) => {
+            res.status(500).send(err)
+        })
+    }else {
+        character.findBy(id).then((character) => {
+            if (!character) {
+                res.status(404).send()
+            }
+            res.send(character);
+        }).catch((err) => {
+            res.status(500).send(err)
+        })
+    }
 };
 function postCharacter(req,res) {
     const newCharacter = new character( {
@@ -26,14 +38,7 @@ function deleteCharacter(req, res) {
     if (!ObjectID.isValid(id)) {
         res.status(400).send()
     }
-    character.findByIdAndDelete(id).then((character) => {
-        if (!character) {
-            res.status(404).send()
-        }
-        res.send("deleted");
-    }).catch((err) => {
-        res.status(500).send()
-    })
+    
 };
 
 function putCharacter(req, res) {

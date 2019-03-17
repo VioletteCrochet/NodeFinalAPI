@@ -1,6 +1,7 @@
 //import  character model and mongoose
-const { character } = require('../models/character.js')
+const { character } = require('../models/character.js');
 const mongoose = require('mongoose');
+
 //define access to mongoose.Types.ObjectId and its methods
 const ObjectID = mongoose.Types.ObjectId;
 
@@ -24,26 +25,6 @@ function getCharacter(req, res) {
         })
     }
 };
-// code à reproduire pour classe et alignement
-// function getCharacter(req, res) {
-//     const {id} = req.params;
-//     if (!ObjectID.isValid(id)) {
-//         character.find().then(character => {
-//             res.send(character)
-//         }).catch((err) => {
-//             res.status(500).send(err)
-//         });
-//     }else {
-//         character.findById(id).then((character) => {
-//             if (!character) {
-//                 res.status(404).send()
-//             }
-//             res.send(character);
-//         }).catch((err) => {
-//             res.status(500).send(err)
-//         })
-//     }
-// };
 
 //POST METHOD
 function postCharacter(req,res) {
@@ -93,7 +74,7 @@ function putCharacter(req, res) {
             res.status(500).send();
         });
     }
-}
+};
 
 //EXPOSE METHODS
 module.exports = {
@@ -101,5 +82,4 @@ module.exports = {
     postCharacter,
     deleteCharacter,
     putCharacter
-}
-
+};

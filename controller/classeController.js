@@ -1,16 +1,28 @@
 //import classe model and mongoose
 const { classe } = require('../models/classe.js')
 const mongoose = require('mongoose');
-//define acces to mongoose.Types.ObjectId and its methods 
+//define acces to mongoose.Types.ObjectId and its methods
 const ObjectID = mongoose.Types.ObjectId;
 
 //GET METHOD
 function getClasse(req, res) {
-    classe.find().then(classe => {
-        res.send(classe)
-    }).catch((err) => {
-        res.status(500).send(err)
-    })
+    const {id} = req.params;
+    if (!ObjectID.isValid(id)) {
+        classe.find().then(classe => {
+            res.send(classe)
+        }).catch((err) => {
+            res.status(500).send(err)
+        });
+    }else {
+        classe.findById(id).then((classe) => {
+            if (!classe) {
+                res.status(404).send()
+            }
+            res.send(classe);
+        }).catch((err) => {
+            res.status(500).send(err)
+        })
+    }
 };
 
 //POST METHOD
@@ -61,7 +73,7 @@ function putClasse(req, res) {
             res.status(500).send();
         });
     }
-}
+};
 
 //EXPOSE METHODS
 module.exports ={
@@ -69,4 +81,4 @@ module.exports ={
     postClasse,
     deleteClasse,
     putClasse
-}
+};

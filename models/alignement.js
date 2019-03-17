@@ -15,9 +15,9 @@ const alignement = mongoose.model('Alignement', {
         type: Number,
         default: 1
     },
-})
+});
 
 //expose Model
 module.exports = {
     alignement
-}
+};

@@ -19,9 +19,9 @@ const character = mongoose.model('Character', {
         type: String,
         default: "neutre"
     }
-})
+});
 
 //expose Model
 module.exports = {
     character
-}
+};

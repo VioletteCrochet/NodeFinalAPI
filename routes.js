@@ -1,6 +1,7 @@
-//import express and body parser modules 
+//import express and body parser modules
 const express = require('express');
-const bodyParser = require ('body-parser')
+const bodyParser = require ('body-parser');
+
 //import models' methods
 const  { getCharacter, postCharacter, deleteCharacter, putCharacter } = require('./controller/characterController.js');
 const  { getAlignement, postAlignement, deleteAlignement, putAlignement } = require('./controller/alignementController.js');
@@ -10,11 +11,12 @@ const  { getClasse, postClasse, deleteClasse, putClasse } = require('./controlle
 const app = express();
 
 //use bodyParser
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
 
-//CHARACTER
 
-// GET ROUTE 
+//CHARACTER METHOD
+
+// GET ROUTE
 app.get('/character', (req,res) =>{
     getCharacter(req,res)
 });
@@ -22,10 +24,6 @@ app.get('/character', (req,res) =>{
 app.get('/character/:id', (req,res) =>{
     getCharacter(req,res)
 });
-// code à reproduire pour classe et alignement
-// app.get('/character/:id', (req,res) =>{
-//     getCharacter(req,res)
-// });
 
 // POST ROUTE
 app.post('/character', (req, res) => {
@@ -42,11 +40,17 @@ app.put('/character/:id', (req, res) => {
     putCharacter(req, res)
 });
 
-// CLASSE
+
+// CLASSE METHOD
 
 // GET ROUTE
 app.get('/classe', (req, res) => {
     getClasse(req, res)
+});
+
+// GETBYID ROUTE
+app.get('/classe/:id', (req,res) =>{
+    getClasse(req,res)
 });
 
 // POST ROUTE
@@ -64,10 +68,16 @@ app.put('/classe/:id', (req, res) => {
     putClasse(req,res)
 });
 
-// ALIGNEMENT
+
+// ALIGNEMENT METHOD
 
 // GET ROUTE
 app.get('/alignement', (req, res) => {
+    getAlignement(req,res)
+});
+
+// GETBYID ROUTE
+app.get('/alignement/:id', (req,res) =>{
     getAlignement(req,res)
 });
 
@@ -87,4 +97,4 @@ app.put('/alignement/:id', (req, res) => {
 });
 
 //expose express
-module.exports = { app }
+module.exports = { app };

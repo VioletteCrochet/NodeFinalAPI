@@ -20,4 +20,4 @@ const classe = mongoose.model('Class', {
 //expose Model
 module.exports = {
     classe
-}
+};

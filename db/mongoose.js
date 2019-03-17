@@ -12,11 +12,11 @@ const password = argv._[1];
 mongoose.Promise = global.Promise;
 
 //define database connection
-console.log(user)
-console.log(password)
+console.log(user);
+console.log(password);
 mongoose.connect(`mongodb+srv://${user}:${password}@cluster0-3n0v9.gcp.mongodb.net/dofusAPI?retryWrites=true`, { useNewUrlParser: true });
 
 //expose module
 module.exports = {
     mongoose
-}
+};

@@ -1,0 +1,50 @@
+[
+    {
+    "level": 180,
+    "alignement": "localhost:3000/alignement/5c8b4e985799c919ec948203",
+    "_id": "5c863b6c32c0f80e74af0e02",
+    "name": "migou-lesupernaze",
+    "classe": "sadida",
+    "__v": 0
+    },
+    {
+    "level": 1,
+    "alignement": "neutre",
+    "_id": "5c8ba149a844d300d8723b1c",
+    "name": "Tempesis",
+    "classe": "roublard",
+    "__v": 0
+    },
+    {
+    "level": 92,
+    "alignement": "neutre",
+    "_id": "5c8ba3ff2685fe1cecc53cbb",
+    "name": "Leo-Lapeuf",
+    "classe": "Osamodas",
+    "__v": 0
+    },
+    {
+    "level": 72,
+    "alignement": "neutre",
+    "_id": "5c8ba7d62685fe1cecc53cce",
+    "name": "Agrropastp",
+    "classe": "Sadida",
+    "__v": 0
+    },
+    {
+    "level": 112,
+    "alignement": "neutre",
+    "_id": "5c8ba7eb2685fe1cecc53ccf",
+    "name": "Biigie",
+    "classe": "Osamodas",
+    "__v": 0
+    },
+    {
+    "level": 20,
+    "alignement": "neutre",
+    "_id": "5c8ba7fc2685fe1cecc53cd0",
+    "name": "Zitonk",
+    "classe": "Pandawa",
+    "__v": 0
+    }
+]

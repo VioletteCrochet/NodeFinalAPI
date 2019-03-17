@@ -28,7 +28,7 @@ function getAlignement(req, res) {
 };
 
 //POST METHOD
-function postAlignement (req,res){ 
+function postAlignement (req,res, callback ) { 
     let newAlignement = new alignement( {
         name: req.body.name,
         cite: req.body.cite,
@@ -41,21 +41,38 @@ function postAlignement (req,res){
     });
 };
 
-//DELETE METHOD
-function deleteAlignement (req,res){
+//DELETE METHOD (callback showcase)
+function deleteAlignement (req, res){
     const {id} = req.params;
     if (!ObjectID.isValid(id)) {
         res.status(400).send()
     }
-    alignement.findByIdAndDelete(id).then((alignement) => {
-        if (!alignement) {
+    alignement.findByIdAndDelete(id, (err, alignement) => {
+        if(err) {
+            res.status(500).send()
+        } else if (!alignement) {
             res.status(404).send()
+        } else {
+            res.send("deleted");
         }
-        res.send("deleted");
-    }).catch((err) => {
-        res.status(500).send()
     })
 };
+
+//same with a promise
+// function deleteAlignement (req,res){
+//     const {id} = req.params;
+//     if (!ObjectID.isValid(id)) {
+//         res.status(400).send()
+//     }
+//     alignement.findByIdAndDelete(id).then((alignement) => {
+//         if (!alignement) {
+//             res.status(404).send()
+//         }
+//         res.send("deleted");
+//     }).catch((err) => {
+//         res.status(500).send()
+//     })
+// };
 
 //PUT METHOD
 function putAlignement (req,res){

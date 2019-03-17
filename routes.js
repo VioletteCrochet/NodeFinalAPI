@@ -87,8 +87,8 @@ app.post('/alignement', (req, res) => {
 });
 
 // DELETE ROUTE
-app.delete('/alignement/:id', (req,res) => {
-    deleteAlignement (req,res)
+app.delete('/alignement/:id', (req, res, callback) => {
+    deleteAlignement (req, res, callback)
 });
 
 // PUT ROUTE

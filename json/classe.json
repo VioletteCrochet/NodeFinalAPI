@@ -1,0 +1,127 @@
+[
+    {
+    "_id": "5c8a480a9a02db25d80c6855",
+    "className": "éliotrope",
+    "spells": "portail, rayon de wakfu",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba5b32685fe1cecc53cbd",
+    "className": "Sadida",
+    "spells": "Ronce",
+    "role": "support",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba5cb2685fe1cecc53cbe",
+    "className": "Osamodas",
+    "spells": "Geyser",
+    "role": "attaquant",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba5e72685fe1cecc53cbf",
+    "className": "Ouginak",
+    "spells": "Cubitus",
+    "role": "attaquant",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba6112685fe1cecc53cc0",
+    "className": "Iop",
+    "spells": "Bond",
+    "role": "attaquant",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba6202685fe1cecc53cc1",
+    "className": "Sram",
+    "spells": "Invisibilité",
+    "role": "attaquant",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba6362685fe1cecc53cc2",
+    "className": "Pandawa",
+    "spells": "Picole",
+    "role": "tank",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba6582685fe1cecc53cc3",
+    "className": "Roublard",
+    "spells": "Roublardise",
+    "role": "Stratege",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba6672685fe1cecc53cc4",
+    "className": "Zobal",
+    "spells": "Appui",
+    "role": "tank",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba69e2685fe1cecc53cc5",
+    "className": "Sacrieur",
+    "spells": "Punition",
+    "role": "tank",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba6b62685fe1cecc53cc6",
+    "className": "Enutrof",
+    "spells": "Cupidité",
+    "role": "support",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba6c72685fe1cecc53cc7",
+    "className": "Xelor",
+    "spells": "Téléportation",
+    "role": "support",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba71d2685fe1cecc53cc8",
+    "className": "Eniripsa",
+    "spells": "Mot de frayeur",
+    "role": "support",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba7322685fe1cecc53cc9",
+    "className": "Feca",
+    "spells": "Bulle",
+    "role": "support",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba76d2685fe1cecc53cca",
+    "className": "Steamer",
+    "spells": "Sauvetage",
+    "role": "support",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba7792685fe1cecc53ccb",
+    "className": "Ecaflip",
+    "spells": "Bluff",
+    "role": "attaquant",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba7832685fe1cecc53ccc",
+    "className": "Cra",
+    "spells": "Oeil de taupe",
+    "role": "attaquant",
+    "__v": 0
+    },
+    {
+    "_id": "5c8ba7b02685fe1cecc53ccd",
+    "className": "Huppermage",
+    "spells": "Lame astrale",
+    "role": "attaquant",
+    "__v": 0
+    }
+]

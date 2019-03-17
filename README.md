@@ -68,6 +68,7 @@ To update a Classe:
 `{ "classeName" : "", "spells" : "", "role" : "" }`
 
 There you have all the details and tips to nicely use the API.
+in case you want to check out our data manually, open the "json" folder, a copy of each collection is available.
 
 Thanks for using our API.
 Enjoy !

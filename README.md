@@ -16,8 +16,7 @@ https://github.com/OlivierCrochet/NodeFinalAPI.git`
 **Finaly**  
 Go into your new directory: `cd NodeFinalAPI`  
 Install dependencies with: `npm install`  
-Start the server: `cd NodeFinalAPI`  
-`node server.js [username] [password] [port]` 
+Start the server:`node server.js [username] [password] [port]`   
 You have to precise with which user you want to connect to the database: 
 - Administrator, with read an write permission on the database, username: admin, password: passwordAdmin;
 - Guest, with a read only acces on the database, username: guest, password: passwordGuest;

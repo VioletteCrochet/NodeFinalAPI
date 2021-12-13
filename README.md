@@ -22,7 +22,7 @@ You have to precise with which user you want to connect to the database:
 - Guest, with a read only acces on the database, username: guest, password: passwordGuest;
 
 Also, you can precise on which port you want to start your local server, default is 3000.
-To execute methods you may want to use a rest client, here's a download link to get Insomnia: `https://insomnia.rest/download/#windows`
+To execute methods you may want to use a rest client, here's a download link to get Insomnia: https://insomnia.rest/download/#windows  
 Three collections exist: "Character", "Alignement", "Classe".
 Four different requests exist: "POST", "GET", "PUT" and "DELETE".
 

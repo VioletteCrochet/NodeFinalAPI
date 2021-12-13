@@ -24,7 +24,7 @@ Four different requests exist: "POST", "GET", "PUT" and "DELETE".
 *This request is used to submit a document to the Database.*
 
 Put in the URL location:
-`localhost:*port*/*nameofcollection*`
+`localhost:*port*/*collectionName*`
 
 To act on Character: 
 `{ "name" : "",
@@ -52,7 +52,7 @@ Put in the URL location:
 *This request is used to delete a character in the Database.*
 
 Put in the URL location:
-`localhost:*ort*/*collectionName*/*characterId*`
+`localhost:*port*/*collectionName*/*characterId*`
 
 ## PUT
 *This request is used to change an element of a collection.*

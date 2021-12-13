@@ -1,6 +1,6 @@
 # Welcome to the Dofus API 
 
-This API was made as a student project to learn hox to make Rest API with node.js
+This API was made as a student project to learn howto make Rest API with node.js
 
 ## How to use DofusAPI
  

@@ -3,12 +3,17 @@
 This API was made as a student project to learn howto make Rest API with node.js
 
 ## How to use DofusAPI
+
+
  
 **First,** 
+You will need Node.js, here's a link to download it : `https://nodejs.org/en/`
+
+**Then**  
 Clone the project on your desktop : `git clone 
 https://github.com/OlivierCrochet/NodeFinalAPI.git` 
 
-**Then**  
+**Finaly**  
 Install dependencies with: `npm install`
 
 Go into your new directory and start the server: `cd NodeFinalAPI`  

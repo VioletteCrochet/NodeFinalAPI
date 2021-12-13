@@ -9,7 +9,7 @@ This API was made as a student project to learn howto make Rest API with node.js
 **First,**  
 You will need Node.js, here's a link to download it : `https://nodejs.org/en/`
 
-**Then** 
+**Then**  
 Clone the project on your desktop : `git clone 
 https://github.com/OlivierCrochet/NodeFinalAPI.git` 
 

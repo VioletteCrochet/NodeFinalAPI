@@ -14,9 +14,9 @@ Clone the project on your desktop : `git clone
 https://github.com/OlivierCrochet/NodeFinalAPI.git` 
 
 **Finaly**  
-Go into your new directory and start the server: `cd NodeFinalAPI`  
+Go into your new directory: `cd NodeFinalAPI`  
 Install dependencies with: `npm install`
-Go into your new directory and start the server: `cd NodeFinalAPI`  
+Start the server: `cd NodeFinalAPI`  
 `node server.js [username] [password] [port]` 
 You have to precise with which user you want to connect to the database: 
 - Administrator, with read an write permission on the database, username: admin, password: passwordAdmin;

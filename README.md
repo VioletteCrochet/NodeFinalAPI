@@ -11,7 +11,7 @@ You will need Node.js, here's a link to download it : https://nodejs.org/en/
 
 **Then**  
 Clone the project on your desktop : `git clone 
-https://github.com/OlivierCrochet/NodeFinalAPI.git` 
+https://github.com/VioletteCrochet/NodeFinalAPI.git` 
 
 **Finaly**  
 Go into your new directory: `cd NodeFinalAPI`  
